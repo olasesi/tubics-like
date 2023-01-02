@@ -14,17 +14,8 @@
                 <form method="POST" action="{{ route('register') }}">
                     @csrf
 
-                <div class="mb-3">
-                  <label for="exampleFormControlInput1" class="form-label">Select your YouTube channel</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="exampleFormControlInput1"
-                    placeholder="Enter your channel name"
-                    name="youtubechannel"
-                  />
-                </div>
 
+                <fetch-channel></fetch-channel>
                 
                 <div class="mb-3">
                   <label for="exampleFormControlSelect1" class="form-label">What describes you best?</label>
