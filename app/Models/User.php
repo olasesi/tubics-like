@@ -18,8 +18,10 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'youtube_id',
+        'youtube_channel',
         'business_email',
+        'business_description',
+        'terms_and_conditions',
         'password',
     ];
     

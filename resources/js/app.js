@@ -21,10 +21,29 @@ window.Vue = require('vue').default;
 
 import VueAxios from 'vue-axios';
 import axios from 'axios';
-
-
-
 Vue.use(VueAxios, axios);
+
+import Vue from 'vue'
+import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
+
+// Import Bootstrap and BootstrapVue CSS files (order is important)
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
+
+// Make BootstrapVue available throughout your project
+Vue.use(BootstrapVue)
+// Optionally install the BootstrapVue icon components plugin
+Vue.use(IconsPlugin)
+
+
+
+
+import {  BootstrapVueIcons } from 'bootstrap-vue'
+
+Vue.use(BootstrapVueIcons)
+
+
+
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('fetch-channel', require('./components/FetchChannelComponent').default);

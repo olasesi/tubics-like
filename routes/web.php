@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\FrontpageController;
+use App\Http\Controllers\RegisterController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,10 +16,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Frontpage
+Route::get('/', [FrontpageController::class, 'index']);
 
-Auth::routes();
+Route::get('/register', [RegisterController::class, 'createuser'])->name('user.create');
+Route::post('/register-2', [RegisterController::class, 'createuser2'])->name('user.create2');
+
+Route::get('/register-3', [RegisterController::class, 'createuser3'])->name('user.create3');
+//Route::get('/register', [RegisterController::class, 'createuser'])->name('user.create');
+
+//Auth::routes();
+//Auth::routes(['register' => false]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
