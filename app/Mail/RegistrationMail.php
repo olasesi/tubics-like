@@ -11,14 +11,17 @@ class RegistrationMail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $email_data;
+   
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($email_data)
     {
-        //
+        $this->email_data = $email_data;
+                //
     }
 
     /**
@@ -28,6 +31,7 @@ class RegistrationMail extends Mailable
      */
     public function build()
     {
+        //return $this->subject($token)->view('emails.verifyUser');
         return $this->markdown('emails.register');
     }
 }

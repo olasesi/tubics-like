@@ -5,6 +5,17 @@
         <div class="row justify-content-center">
 
             <div class="col-md-6">
+              
+              @if(Session::has('failed'))
+              <div class="alert alert-danger">
+                  {{ Session::get('failed') }}
+                  @php
+                      Session::forget('failed');
+                  @endphp
+              </div>
+              @endif
+      
+
                 <h2 class="">Verify your email address</h2>
                 <p class="">We just emailed a six-digit code to
                     <b>{{ Cookie::get('business_email') }}</b>
@@ -15,13 +26,13 @@
 
                     <div class="card-body">
 
-                        <form method="POST" action="">
+                        <form method="POST" action="{{ route('user.create4') }}">
                             @csrf
 
                             <div class="mb-3">
 
                                 <input type="text" class="form-control" id="exampleFormControlInput2"
-                                    placeholder="000000" name="emailcode" />
+                                    placeholder="000000" name="verification_code" />
 
                                 <input type="hidden" class="form-control" id="exampleFormControlInput3" name="business_email"
                                     value="{{ Cookie::get('business_email') }}" />
@@ -45,6 +56,7 @@
                                 </div>
                             </div>
 
+                            <a href="">Resend</a>
 
                         </form>
                     </div>

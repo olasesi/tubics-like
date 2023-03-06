@@ -15,13 +15,21 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->integer('signup_step')->default(0);
-            $table->string('youtube_channel');
+            $table->integer('active')->default(0);
+            $table->integer('active_stage1')->default(0);
+            $table->integer('active_stage2')->default(0);
+            $table->string('youtube_channel')->nullable();
             $table->string('business_description')->nullable();
-            $table->string('business_email');       //Unique or not?
-            $table->string('terms_and_conditions')->nullable();
+            $table->string('business_email')->nullable();  
+            $table->string('country')->nullable();  
+            $table->string('language')->nullable();
+            $table->text('competitive_channel')->nullable();
+            $table->text('keyword')->nullable();       //Unique or not?
+            $table->string('verification_code')->nullable();
+            $table->string('token')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->nullable();
+            
             $table->rememberToken();
             $table->timestamps();
         });

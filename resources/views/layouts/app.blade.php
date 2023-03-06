@@ -62,6 +62,7 @@
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="../assets/js/config.js"></script>
+    <script src="js/paystack.js"></script>
 </head>
 <body>
     <div id="app">
@@ -93,7 +94,7 @@
                           
                                 <li class="nav-item">
                                     
-                                    <a type="button" class="btn btn-primary" href="{{ route('user.create') }}">Start my trial</a>
+                                    <a type="button" class="btn btn-primary" target="_blank" href="{{ route('user.create') }}">Start my trial</a>
                                 </li>
                            
                        

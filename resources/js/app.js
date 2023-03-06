@@ -39,14 +39,22 @@ Vue.use(IconsPlugin)
 
 
 import {  BootstrapVueIcons } from 'bootstrap-vue'
-
 Vue.use(BootstrapVueIcons)
 
+import Multiselect from 'vue-multiselect'
+Vue.component('multiselect', Multiselect)
 
 
+import vSelect from 'vue-select'
+Vue.component('v-select', vSelect)
+import 'vue-select/dist/vue-select.css';
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('example-component', require('./components/ExampleComponent').default);
 Vue.component('fetch-channel', require('./components/FetchChannelComponent').default);
+Vue.component('fetch-country', require('./components/FetchCountryComponent').default);
+Vue.component('fetch-language', require('./components/FetchLanguageComponent').default);
+Vue.component('multi-select', require('./components/MultiSelectComponent').default);
+Vue.component('multi-tag', require('./components/MultiTagComponent').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
