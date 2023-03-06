@@ -21,10 +21,43 @@ class User extends Authenticatable
         'youtube_channel',
         'business_email',
         'business_description',
-        'terms_and_conditions',
+        'language',
+        'competitive_channel',
+        'keyword',
+        'active',
+        'active_stage1',
+        'active_stage2',
         'password',
+        'verification_code',
+        'token'
     ];
+
     
+    
+    public function setCompetitiveChannelAttribute($value)
+    {
+        $this->attributes['competitive_channel'] = json_encode($value);
+  
+    }
+  
+    public function getCompetitiveChannelAttribute($value)
+    {
+        return $this->attributes['competitive_channel'] = json_decode($value);
+    }
+
+    public function setKeywordChannelAttribute($value)
+    {
+        $this->attributes['keyword'] = json_encode($value);
+  
+    }
+  
+    public function getKeywordChannelAttribute($value)
+    {
+        return $this->attributes['keyword'] = json_decode($value);
+    }
+
+
+
     /**
      * The attributes that should be hidden for serialization.
      *
