@@ -2,8 +2,12 @@
 
 use App\Http\Controllers\FrontpageController;
 use App\Http\Controllers\RegisterController;
-
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ForgotPasswordController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -32,17 +36,31 @@ Route::get('/register-5', [RegisterController::class, 'createuser4'])->name('use
 Route::get('/register-4', [RegisterController::class, 'resendcode'])->name('user.resendcode');
 Route::get('/register-6', [RegisterController::class, 'createcustomizeaccount'])->middleware('cookiestage1')->name('user.user.create6');
 
-//prepare your account
+//Prepare your account
 Route::post('/register-6', [RegisterController::class, 'savepreparation'])->name('user.saveprepare');
 
-//plan
+//Plan
 Route::get('/plan', [RegisterController::class, 'createplan'])->middleware('planstage2')->name('user.plan');
 
 //Verify
 Route::get('/verify', [RegisterController::class, 'createverifiedmessage'])->name('user.verified');
 
+//Login
+Route::get('/login', [LoginController::class, 'createlogin'])->name('user.login');
+Route::post('/login', [LoginController::class, 'savelogin'])->name('user.save');
+Route::post('/logout', [LoginController::class, 'logoutsave'])->name('user.logoutsave');
+
+//Forget password
+Route::get('/forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('user.forget.password');
+Route::post('/forget-password', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('user.forget.password'); 
+Route::get('/reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('user.reset.password');
+Route::post('/reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('user.reset.password');
+
+//Dashboard Home
+Route::get('/dashboard', [DashboardController::class, 'indexdasbboard'])->name('dasbboard.index');
+
+//User Home
+Route::get('/home', [HomeController::class, 'indexhome'])->name('user.home');
 
 //Auth::routes();
 //Auth::routes(['register' => false]);
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -1,23 +1,19 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}"  class="light-style"
-    dir="ltr"
-    data-theme="theme-default"
-    data-assets-path="../assets/"
-    data-template="vertical-menu-template-free">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="light-style" dir="ltr" data-theme="theme-default"
+    data-assets-path="../assets/" data-template="vertical-menu-template-free">
+
 <head>
     <meta charset="utf-8">
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
-    />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="description" content="" />
 
-    
-    <title>{{ config('app.name', 'Tubics') }}</title>
+
+    <title>{{ config('app.name') }}</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
@@ -39,9 +35,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
-      rel="stylesheet"
-    />
+        href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet" />
 
     <!-- Icons. Uncomment required icon fonts -->
     <link rel="stylesheet" href="../assets/vendor/fonts/boxicons.css" />
@@ -64,14 +59,17 @@
     <script src="../assets/js/config.js"></script>
     <script src="js/paystack.js"></script>
 </head>
+
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    {{ config('app.name') }}
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
@@ -84,21 +82,22 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
-                        
-                            
-                                <li class="nav-item">
-                                    <a class="nav-link" href="">{{ __('Login') }}</a>
-                                </li>
-                            
 
-                          
-                                <li class="nav-item">
-                                    
-                                    <a type="button" class="btn btn-primary" target="_blank" href="{{ route('user.create') }}">Start my trial</a>
-                                </li>
-                           
-                       
-                            {{-- <li class="nav-item dropdown">
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('user.login') }}">{{ __('Login') }}</a>
+                        </li>
+
+
+
+                        <li class="nav-item">
+
+                            <a type="button" class="btn btn-primary" target="_blank"
+                                href="{{ route('user.create') }}">Start my trial</a>
+                        </li>
+
+
+                        {{-- <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
@@ -124,26 +123,22 @@
         <main class="py-4">
 
 
-    <!-- / Content -->
+            <!-- / Content -->
 
-    <div class="buy-now">
-      <a
-        href="https://themeselection.com/products/sneat-bootstrap-html-admin-template/"
-        target="_blank"
-        class="btn btn-danger btn-buy-now"
-        >Upgrade to Pro</a
-      >
-    </div>
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+            <div class="buy-now">
+                <a href="https://themeselection.com/products/sneat-bootstrap-html-admin-template/" target="_blank"
+                    class="btn btn-danger btn-buy-now">Upgrade to Pro</a>
+            </div>
+
+
+
+
+
+
+
+
+
+
             @yield('content')
         </main>
     </div>
@@ -179,16 +174,5 @@
 
 
 </body>
+
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
